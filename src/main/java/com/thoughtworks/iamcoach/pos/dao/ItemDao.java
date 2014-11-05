@@ -10,58 +10,51 @@ public class ItemDao {
 
     private JdbcTemplate jdbcTemplate;
 
-    public ItemDao(JdbcTemplate jdbcTemplate) {
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private Connection connection = null;
+    public Item getItemById(final int id) {
 
-    public Item getItemById(int id) {
-        Item item = null;
         String sql = "SELECT * FROM item WHERE id=?";
+        final Item item = new Item();
 
-        try {
-            connection = DatabaseUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
+        jdbcTemplate.query(sql, new Object[] {id}, new RowCallbackHandler() {
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            item = new Item(resultSet.getInt("id"), resultSet.getString("barcode"),
-                    resultSet.getString("name"), resultSet.getString("unit"),
-                    resultSet.getDouble("price"), resultSet.getString("category"));
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                item.setId(id);
+                item.setBarcode(resultSet.getString("barcode"));
+                item.setName(resultSet.getString("name"));
+                item.setUnit(resultSet.getString("unit"));
+                item.setPrice(resultSet.getDouble("price"));
+                item.setPrice(resultSet.getDouble("price"));
+                item.setCategory(resultSet.getString("category"));
+            }
+        });
 
-            preparedStatement.close();
-            resultSet.close();
-            DatabaseUtil.closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return item;
     }
 
-    public Item getItemByBarcode(String barcode) {
-        Item item = null;
+    public Item getItemByBarcode(final String barcode) {
+
         String sql = "SELECT * FROM item WHERE barcode=?";
+        final Item item = new Item();
 
-        try {
-            connection = DatabaseUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, barcode);
+        jdbcTemplate.query(sql, new Object[] {barcode}, new RowCallbackHandler() {
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            resultSet.next();
-            item = new Item(resultSet.getInt("id"), resultSet.getString("barcode"),
-                    resultSet.getString("name"), resultSet.getString("unit"),
-                    resultSet.getDouble("price"), resultSet.getString("category"));
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
+                item.setId(resultSet.getInt("id"));
+                item.setBarcode(barcode);
+                item.setName(resultSet.getString("name"));
+                item.setUnit(resultSet.getString("unit"));
+                item.setPrice(resultSet.getDouble("price"));
+                item.setPrice(resultSet.getDouble("price"));
+                item.setCategory(resultSet.getString("category"));
+            }
+        });
 
-            resultSet.close();
-            preparedStatement.close();
-            DatabaseUtil.closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return item;
     }
-
 }
