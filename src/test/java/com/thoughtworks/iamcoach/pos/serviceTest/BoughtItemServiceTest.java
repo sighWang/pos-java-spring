@@ -2,7 +2,10 @@ package com.thoughtworks.iamcoach.pos.serviceTest;
 
 import com.thoughtworks.iamcoach.pos.service.BoughtItemService;
 import com.thoughtworks.iamcoach.pos.domain.BoughtItem;
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +13,14 @@ import java.util.List;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class BoughtItemServiceTest {
-    private BoughtItemService boughtItemService = new BoughtItemService();
+    private BoughtItemService boughtItemService;
 
+    @Before
+    public void init() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
+        boughtItemService = (BoughtItemService) context.getBean("boughtItemService");
+    }
+    
     @Test
     public void barcodes_to_boughtItems_test() {
         List<String> cartBarcodes = new ArrayList<String>();
