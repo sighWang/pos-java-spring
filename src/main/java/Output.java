@@ -40,15 +40,11 @@ public class Output {
         return sum;
     }
 
-    private static String getShoppingListBody(List<BoughtItem> BoughtItemList) {
+    private static String getShoppingListBody(List<BoughtItem> boughtItemList) {
         String shoppingListBody = "";
 
-        for (BoughtItem BoughtItem : BoughtItemList) {
-            shoppingListBody += BoughtItem.getName() + " ";
-            shoppingListBody += BoughtItem.getNumber();
-            shoppingListBody += BoughtItem.getUnit() + " ";
-            shoppingListBody += BoughtItem.getPrice() + "元 ";
-            shoppingListBody += BoughtItem.getSubtotal() + "元\n";
+        for (BoughtItem boughtItem : boughtItemList) {
+            shoppingListBody += boughtItem.toString() + "\n";
         }
 
         return shoppingListBody;
