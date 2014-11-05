@@ -20,7 +20,7 @@ public class BoughtItemServiceTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
         boughtItemService = (BoughtItemService) context.getBean("boughtItemService");
     }
-    
+
     @Test
     public void barcodes_to_boughtItems_test() {
         List<String> cartBarcodes = new ArrayList<String>();
