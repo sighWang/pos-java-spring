@@ -18,7 +18,7 @@ public class BarcodeTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
         barcode = (Barcode) context.getBean("barcode");
     }
-    
+
     @Test
     public void unique_barcodes_test() {
         List<String> barcodeList = new ArrayList<String>();
