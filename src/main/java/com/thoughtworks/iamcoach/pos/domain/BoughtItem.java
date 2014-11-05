@@ -75,13 +75,10 @@ public class BoughtItem implements Comparable {
 
     @Override
     public String toString() {
-        return "BoughtItem{" +
-                "name='" + name + '\'' +
-                ", unit='" + unit + '\'' +
-                ", price=" + price +
-                ", category='" + category + '\'' +
-                ", number=" + number +
-                ", subtotal=" + subtotal +
-                '}';
+        return "商品:" + name +
+                ", 单价:" + String.format("%.2f", price) +
+                "元, 分类:" + category +
+                ", 数量:" + number + unit +
+                ", 小计:" + String.format("%.2f", subtotal) + "元";
     }
 }
