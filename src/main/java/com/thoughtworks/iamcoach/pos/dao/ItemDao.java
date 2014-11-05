@@ -13,7 +13,7 @@ public class ItemDao {
     public ItemDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    
+
     private Connection connection = null;
 
     public Item getItemById(int id) {
