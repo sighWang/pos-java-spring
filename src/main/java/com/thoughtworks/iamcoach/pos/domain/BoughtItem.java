@@ -73,4 +73,15 @@ public class BoughtItem implements Comparable {
         return (int) result;
     }
 
+    @Override
+    public String toString() {
+        return "BoughtItem{" +
+                "name='" + name + '\'' +
+                ", unit='" + unit + '\'' +
+                ", price=" + price +
+                ", category='" + category + '\'' +
+                ", number=" + number +
+                ", subtotal=" + subtotal +
+                '}';
+    }
 }
