@@ -12,7 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PromotionDao {
+    private JdbcTemplate jdbcTemplate;
 
+    public void setJdbcTempalte(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
     Connection connection = null;
 
     public List<Promotion> getItemPromotionList(int id) {
