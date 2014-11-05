@@ -1,6 +1,9 @@
 package com.thoughtworks.iamcoach.pos;
 
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +11,14 @@ import java.util.List;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class BarcodeTest {
-    private Barcode barcode = new Barcode();
+    private Barcode barcode;
 
+    @Before
+    public void init() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
+        barcode = (Barcode) context.getBean("barcode");
+    }
+    
     @Test
     public void unique_barcodes_test() {
         List<String> barcodeList = new ArrayList<String>();
