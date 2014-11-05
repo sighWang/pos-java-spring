@@ -2,10 +2,18 @@ package com.thoughtworks.iamcoach.pos.dao;
 
 import com.thoughtworks.iamcoach.pos.util.DatabaseUtil;
 import com.thoughtworks.iamcoach.pos.domain.Item;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.*;
 
 public class ItemDao {
+
+    private JdbcTemplate jdbcTemplate;
+
+    public ItemDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    
     private Connection connection = null;
 
     public Item getItemById(int id) {
