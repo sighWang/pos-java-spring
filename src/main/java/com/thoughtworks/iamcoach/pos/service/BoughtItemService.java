@@ -12,13 +12,17 @@ import java.util.List;
 public class BoughtItemService {
 
     private Barcode barcode;
+    private ItemService itemService;
 
     public void setBarcode(Barcode barcode) {
         this.barcode = barcode;
     }
 
+    public void setItemService(ItemService itemService) {
+        this.itemService = itemService;
+    }
+
     public List<BoughtItem> barcodesToBoughtItems(List<String> cartBarcodes) {
-        ItemService itemService = new ItemService();
         List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
         List<String> uniqueBarcodes = barcode.uniqueBarcode(cartBarcodes);
 
