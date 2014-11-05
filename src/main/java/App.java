@@ -14,10 +14,9 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILE);
         BoughtItemService boughtItemServiceSpring = (BoughtItemService) applicationContext.getBean("boughtItemService");
-        BoughtItemService boughtItemService = new BoughtItemService();
         List<String> cartBarcodes = FileUtil.textToList(CART_FILE);
 
-        List<BoughtItem> boughtItems = boughtItemService.barcodesToBoughtItems(cartBarcodes);
+        List<BoughtItem> boughtItems = boughtItemServiceSpring.barcodesToBoughtItems(cartBarcodes);
 
         List<PrintItem> printItemList = new ArrayList<PrintItem>();
 
