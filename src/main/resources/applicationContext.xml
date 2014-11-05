@@ -19,6 +19,9 @@
     <bean id="boughtItem" class="com.thoughtworks.iamcoach.pos.domain.BoughtItem"/>
     <bean id="promotion" class="com.thoughtworks.iamcoach.pos.domain.Promotion"/>
     <bean id="itemDao" class="com.thoughtworks.iamcoach.pos.dao.ItemDao">
-        <constructor-arg ref="jdbcTemplate"/>
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+    <bean id="promotionDao" class="com.thoughtworks.iamcoach.pos.dao.PromotionDao">
+        <property name="jdbcTempalte" ref="jdbcTemplate"/>
     </bean>
 </beans>
