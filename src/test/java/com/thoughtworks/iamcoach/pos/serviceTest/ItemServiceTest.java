@@ -1,12 +1,23 @@
 package com.thoughtworks.iamcoach.pos.serviceTest;
 
 import com.thoughtworks.iamcoach.pos.service.ItemService;
+import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
 public class ItemServiceTest {
-    ItemService itemService = new ItemService();
+    private ItemService itemService;
+
+    @Before
+    public void init() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
+        itemService = (ItemService)context.getBean("itemService");
+    }
 
     @Test
     public void find_item_by_id_test() {
