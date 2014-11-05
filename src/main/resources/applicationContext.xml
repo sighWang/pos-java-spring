@@ -17,4 +17,5 @@
 
     <bean id="item" class="com.thoughtworks.iamcoach.pos.domain.Item"/>
     <bean id="boughtItem" class="com.thoughtworks.iamcoach.pos.domain.BoughtItem"/>
+    <bean id="promotion" class="com.thoughtworks.iamcoach.pos.domain.Promotion"/>
 </beans>
