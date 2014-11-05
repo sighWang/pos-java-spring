@@ -3,6 +3,7 @@ package com.thoughtworks.iamcoach.pos.dao;
 import com.thoughtworks.iamcoach.pos.PromotionFactory;
 import com.thoughtworks.iamcoach.pos.util.DatabaseUtil;
 import com.thoughtworks.iamcoach.pos.domain.Promotion;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
