@@ -1,12 +1,9 @@
-package com.thoughtworks.iamcoach.pos.serviceTest;
+package com.thoughtworks.iamcoach.pos.service;
 
-import com.thoughtworks.iamcoach.pos.service.ItemService;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.test.context.ContextConfiguration;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 

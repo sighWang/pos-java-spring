@@ -1,6 +1,5 @@
-package com.thoughtworks.iamcoach.pos.serviceTest;
+package com.thoughtworks.iamcoach.pos.service;
 
-import com.thoughtworks.iamcoach.pos.service.BoughtItemService;
 import com.thoughtworks.iamcoach.pos.domain.BoughtItem;
 import org.junit.Before;
 import org.junit.Test;
