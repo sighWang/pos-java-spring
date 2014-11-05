@@ -17,14 +17,22 @@
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
-
+    <!-- domain bean-->
     <bean id="item" class="com.thoughtworks.iamcoach.pos.domain.Item"/>
     <bean id="boughtItem" class="com.thoughtworks.iamcoach.pos.domain.BoughtItem"/>
     <bean id="promotion" class="com.thoughtworks.iamcoach.pos.domain.Promotion"/>
+
+    <!-- dao bean-->
     <bean id="itemDao" class="com.thoughtworks.iamcoach.pos.dao.ItemDao">
         <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
     <bean id="promotionDao" class="com.thoughtworks.iamcoach.pos.dao.PromotionDao">
         <property name="jdbcTempalte" ref="jdbcTemplate"/>
+    </bean>
+
+    <!-- service bean-->
+    <bean id="itemService" class="com.thoughtworks.iamcoach.pos.service.ItemService">
+        <property name="itemDao" ref="itemDao"/>
+        <property name="promotionDao" ref="promotionDao"/>
     </bean>
 </beans>
