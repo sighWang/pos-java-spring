@@ -1,12 +1,10 @@
 package com.thoughtworks.iamcoach.pos.dao;
 
 import com.thoughtworks.iamcoach.pos.PromotionFactory;
-import com.thoughtworks.iamcoach.pos.util.DatabaseUtil;
 import com.thoughtworks.iamcoach.pos.domain.Promotion;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,32 +16,23 @@ public class PromotionDao {
     public void setJdbcTempalte(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    Connection connection = null;
 
-    public List<Promotion> getItemPromotionList(int id) {
-        List<Promotion> promotionList = new ArrayList<Promotion>();
+    public List<Promotion> getItemPromotionList(final int id) {
 
         String sql = "SELECT promotion.*,promotion_item.discount FROM promotion,promotion_item " +
                 "WHERE promotion_item.item_id=? AND promotion.id=promotion_item.promotion_id";
+        final List<Promotion> promotionList = new ArrayList<Promotion>();
 
-        try {
-            connection = DatabaseUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, id);
-            ResultSet resultSet = preparedStatement.executeQuery();
+        jdbcTemplate.query(sql, new Object[] {id}, new RowCallbackHandler() {
 
-            while (resultSet.next()) {
+            @Override
+            public void processRow(ResultSet resultSet) throws SQLException {
                 Promotion promotion = PromotionFactory.createPromotion(resultSet.getInt("id"),
                         resultSet.getString("type"), resultSet.getInt("discount"), resultSet.getInt("level"));
                 promotionList.add(promotion);
             }
+        });
 
-            resultSet.close();
-            preparedStatement.close();
-            DatabaseUtil.closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         return promotionList;
     }
 }
