@@ -14,6 +14,15 @@ public class Item {
     public Item() {
     }
 
+    public Item(int id, String barcode, String name, String unit, double price, String category) {
+        this.id = id;
+        this.barcode = barcode;
+        this.name = name;
+        this.unit = unit;
+        this.price = price;
+        this.category = category;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -35,15 +44,6 @@ public class Item {
     }
 
     public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Item(int id, String barcode, String name, String unit, double price, String category) {
-        this.id = id;
-        this.barcode = barcode;
-        this.name = name;
-        this.unit = unit;
-        this.price = price;
         this.category = category;
     }
 
