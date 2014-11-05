@@ -6,12 +6,15 @@ import com.thoughtworks.iamcoach.pos.domain.Item;
 
 public class ItemService {
     private ItemDao itemDao;
-    PromotionDao promotionDao = new PromotionDao();
+    private PromotionDao promotionDao;
 
     public void setItemDao(ItemDao itemDao) {
         this.itemDao = itemDao;
     }
 
+    public void setPromotionDao(PromotionDao promotionDao) {
+        this.promotionDao = promotionDao;
+    }
     public Item findItemById(int id) {
         Item item = itemDao.getItemById(id);
         item.setPromotionList(promotionDao.getItemPromotionList(id));
