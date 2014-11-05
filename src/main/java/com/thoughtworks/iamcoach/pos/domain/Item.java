@@ -14,6 +14,30 @@ public class Item {
     public Item() {
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
     public Item(int id, String barcode, String name, String unit, double price, String category) {
         this.id = id;
         this.barcode = barcode;
