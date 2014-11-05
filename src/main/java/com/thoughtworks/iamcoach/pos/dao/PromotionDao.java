@@ -23,7 +23,7 @@ public class PromotionDao {
                 "WHERE promotion_item.item_id=? AND promotion.id=promotion_item.promotion_id";
         final List<Promotion> promotionList = new ArrayList<Promotion>();
 
-        jdbcTemplate.query(sql, new Object[] {id}, new RowCallbackHandler() {
+        jdbcTemplate.query(sql, new Object[]{id}, new RowCallbackHandler() {
 
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {

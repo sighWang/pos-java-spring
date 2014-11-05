@@ -19,7 +19,7 @@ public class ItemDao {
         String sql = "SELECT * FROM item WHERE id=?";
         final Item item = new Item();
 
-        jdbcTemplate.query(sql, new Object[] {id}, new RowCallbackHandler() {
+        jdbcTemplate.query(sql, new Object[]{id}, new RowCallbackHandler() {
 
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {
@@ -41,7 +41,7 @@ public class ItemDao {
         String sql = "SELECT * FROM item WHERE barcode=?";
         final Item item = new Item();
 
-        jdbcTemplate.query(sql, new Object[] {barcode}, new RowCallbackHandler() {
+        jdbcTemplate.query(sql, new Object[]{barcode}, new RowCallbackHandler() {
 
             @Override
             public void processRow(ResultSet resultSet) throws SQLException {

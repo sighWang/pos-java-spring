@@ -15,6 +15,7 @@ public class ItemService {
     public void setPromotionDao(PromotionDao promotionDao) {
         this.promotionDao = promotionDao;
     }
+
     public Item findItemById(int id) {
         Item item = itemDao.getItemById(id);
         item.setPromotionList(promotionDao.getItemPromotionList(id));

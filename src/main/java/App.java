@@ -11,6 +11,7 @@ import java.util.List;
 public class App {
     private static final String CART_FILE = "src/main/resources/cart.txt";
     private static final String SPRING_CONFIG_FILE = "applicationContext.xml";
+
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILE);
         BoughtItemService boughtItemServiceSpring = (BoughtItemService) applicationContext.getBean("boughtItemService");
