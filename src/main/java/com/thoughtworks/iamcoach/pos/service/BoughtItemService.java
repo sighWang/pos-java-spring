@@ -10,7 +10,12 @@ import java.util.Collections;
 import java.util.List;
 
 public class BoughtItemService {
-    private Barcode barcode = new Barcode();
+
+    private Barcode barcode;
+
+    public void setBarcode(Barcode barcode) {
+        this.barcode = barcode;
+    }
 
     public List<BoughtItem> barcodesToBoughtItems(List<String> cartBarcodes) {
         ItemService itemService = new ItemService();
