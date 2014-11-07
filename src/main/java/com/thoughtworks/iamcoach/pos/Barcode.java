@@ -1,7 +1,5 @@
 package com.thoughtworks.iamcoach.pos;
 
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Barcode {
@@ -20,18 +18,6 @@ public class Barcode {
         }
 
         return number * times;
-    }
-
-    public List<String> uniqueBarcode(List<String> cartBarcodes) {
-        List<String> tempArray = new ArrayList<String>();
-
-        for (String barcode : cartBarcodes) {
-            if (!tempArray.contains(barcode)) {
-                tempArray.add(barcode);
-            }
-        }
-
-        return tempArray;
     }
 
     public int getBarcodeTimes(List<String> cartBarcodes, String barcode) {

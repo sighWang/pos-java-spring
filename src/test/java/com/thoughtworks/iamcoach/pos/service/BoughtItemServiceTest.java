@@ -55,10 +55,11 @@ public class BoughtItemServiceTest {
         BoughtItem boughtItem2 = boughtItemList.get(1);
 
         assertThat(boughtItem1.getNumber()).isEqualTo(4.00);
-        assertThat(boughtItem1.getBarcode()).isEqualTo("ITEM000001");
+        assertThat(boughtItem1.getBarcode()).isEqualTo("ITEM000006");
         assertThat(boughtItem1.getPrice()).isEqualTo(10.00);
+
         assertThat(boughtItem2.getNumber()).isEqualTo(4.00);
-        assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000006");
+        assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000001");
     }
 
     @Test
