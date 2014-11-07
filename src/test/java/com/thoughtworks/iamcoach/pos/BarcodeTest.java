@@ -21,17 +21,6 @@ public class BarcodeTest {
     }
 
     @Test
-    public void unique_barcodes_test() {
-        List<String> barcodeList = new ArrayList<String>();
-        barcodeList.add("ITEM000001");
-        barcodeList.add("ITEM000001");
-        barcodeList.add("ITEM000002");
-
-        Set<String> uniqueBarcodes = barcode.uniqueBarcode(barcodeList);
-        assertThat(uniqueBarcodes.size()).isEqualTo(2);
-    }
-
-    @Test
     public void get_barcode_times_test() {
         List<String> barcodeList = new ArrayList<String>();
         barcodeList.add("ITEM000001");
