@@ -6,8 +6,6 @@ import com.thoughtworks.iamcoach.pos.domain.Item;
 import com.thoughtworks.iamcoach.pos.domain.Promotion;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
