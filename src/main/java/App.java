@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
+import java.util.Set;
 
 public class App {
     private static final String CART_FILE = "src/main/resources/cart.txt";
@@ -16,7 +17,8 @@ public class App {
         List<String> cartBarcodes = FileUtil.textToList(CART_FILE);
 
         List<BoughtItem> boughtItems = boughtItemServiceSpring.barcodesToBoughtItems(cartBarcodes);
-        Output.printShoppingList(boughtItems);
+        Set<String> categorySet = boughtItemServiceSpring.getCategorySetOfBoughtItems(boughtItems);
+        Output.printShoppingList(boughtItems, categorySet);
     }
 
 }
