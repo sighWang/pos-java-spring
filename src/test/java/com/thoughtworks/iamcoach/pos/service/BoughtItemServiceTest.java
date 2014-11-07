@@ -46,7 +46,7 @@ public class BoughtItemServiceTest {
     }
 
     @Test
-    public void get_boughtItem_category_set() {
+    public void get_category_set_of_boughtItems_test() {
         Item item1 = new Item(1, "ITEM000002", "apple", "kg", 10.00, "fruit");
         Item item2 = new Item(2, "ITEM000003", "banana", "kg", 10.00, "fruit");
         List<BoughtItem> boughtItemList = new ArrayList<BoughtItem>();
@@ -57,7 +57,7 @@ public class BoughtItemServiceTest {
         boughtItemList.add(boughtItem1);
         boughtItemList.add(boughtItem2);
 
-        Set<String> categorySet = getBoughtItemCategorySet(boughtItemList);
+        Set<String> categorySet = getCategorySetOfBoughtItems(boughtItemList);
         assertThat(categorySet).hasSize(1);
     }
 
