@@ -13,6 +13,10 @@ import java.util.List;
 public class PromotionDao {
     private JdbcTemplate jdbcTemplate;
 
+    public PromotionDao() {}
+    public PromotionDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
     public void setJdbcTempalte(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
