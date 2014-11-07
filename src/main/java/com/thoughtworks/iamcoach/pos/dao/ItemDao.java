@@ -9,6 +9,10 @@ import java.sql.*;
 public class ItemDao {
 
     private JdbcTemplate jdbcTemplate;
+    public ItemDao() {}
+    public ItemDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
