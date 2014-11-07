@@ -11,6 +11,12 @@ public class BoughtItemService {
 
     private Barcode barcode;
     private ItemService itemService;
+    public BoughtItemService() {}
+
+    public BoughtItemService(Barcode barcode, ItemService itemService) {
+        this.barcode = barcode;
+        this.itemService = itemService;
+    }
 
     public void setBarcode(Barcode barcode) {
         this.barcode = barcode;
