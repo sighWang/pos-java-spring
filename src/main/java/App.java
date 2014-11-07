@@ -13,11 +13,11 @@ public class App {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILE);
-        BoughtItemService boughtItemServiceSpring = (BoughtItemService) applicationContext.getBean("boughtItemService");
+        BoughtItemService boughtItemService = (BoughtItemService) applicationContext.getBean("boughtItemService");
         List<String> cartBarcodes = FileUtil.textToList(CART_FILE);
 
-        List<BoughtItem> boughtItems = boughtItemServiceSpring.barcodesToBoughtItems(cartBarcodes);
-        Set<String> categorySet = boughtItemServiceSpring.getCategorySetOfBoughtItems(boughtItems);
+        List<BoughtItem> boughtItems = boughtItemService.barcodesToBoughtItems(cartBarcodes);
+        Set<String> categorySet = boughtItemService.getCategorySetOfBoughtItems(boughtItems);
         Output.printShoppingList(boughtItems, categorySet);
     }
 
