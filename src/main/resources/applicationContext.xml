@@ -36,7 +36,7 @@
         <constructor-arg ref="barcode"/>
         <constructor-arg ref="itemService"/>
     </bean>
-    
+
     <!-- other bean-->
     <bean id="barcode" class="com.thoughtworks.iamcoach.pos.Barcode"/>
 </beans>

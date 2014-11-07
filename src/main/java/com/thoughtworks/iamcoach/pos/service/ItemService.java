@@ -10,6 +10,12 @@ import java.util.List;
 public class ItemService {
     private ItemDao itemDao;
     private PromotionDao promotionDao;
+    public ItemService() {}
+
+    public ItemService(ItemDao itemDao, PromotionDao promotionDao) {
+        this.itemDao = itemDao;
+        this.promotionDao = promotionDao;
+    }
 
     public void setItemDao(ItemDao itemDao) {
         this.itemDao = itemDao;
