@@ -7,7 +7,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
