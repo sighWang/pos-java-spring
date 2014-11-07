@@ -1,8 +1,9 @@
 package com.thoughtworks.iamcoach.pos;
 
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Barcode {
 
@@ -22,16 +23,11 @@ public class Barcode {
         return number * times;
     }
 
-    public List<String> uniqueBarcode(List<String> cartBarcodes) {
-        List<String> tempArray = new ArrayList<String>();
+    public Set<String> uniqueBarcode(List<String> cartBarcodes) {
+        Set<String> barcodeList = new HashSet<String>();
+        barcodeList.addAll(cartBarcodes);
 
-        for (String barcode : cartBarcodes) {
-            if (!tempArray.contains(barcode)) {
-                tempArray.add(barcode);
-            }
-        }
-
-        return tempArray;
+        return barcodeList;
     }
 
     public int getBarcodeTimes(List<String> cartBarcodes, String barcode) {
