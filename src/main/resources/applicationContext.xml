@@ -21,7 +21,7 @@
 
     <!-- dao bean-->
     <bean id="itemDao" class="com.thoughtworks.iamcoach.pos.dao.ItemDao">
-        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <constructor-arg ref="jdbcTemplate"/>
     </bean>
     <bean id="promotionDao" class="com.thoughtworks.iamcoach.pos.dao.PromotionDao">
         <property name="jdbcTempalte" ref="jdbcTemplate"/>
