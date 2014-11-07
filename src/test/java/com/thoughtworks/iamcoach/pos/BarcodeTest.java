@@ -15,7 +15,7 @@ public class BarcodeTest {
 
     @Before
     public void init() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         barcode = (Barcode) context.getBean("barcode");
     }
 
