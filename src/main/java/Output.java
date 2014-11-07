@@ -47,13 +47,19 @@ public class Output {
 
         for (String category : categorySet) {
             shoppingListBody += category + "\n";
-            for (BoughtItem boughtItem : boughtItemList) {
-                if (category.equals(boughtItem.getCategory())) {
-                    shoppingListBody += boughtItem.toString();
-                }
-            }
-            shoppingListBody += "\n";
+            shoppingListBody += getOutputByCategory(category, boughtItemList) + "\n";
         }
         return shoppingListBody;
+    }
+
+    private static String getOutputByCategory(String category, List<BoughtItem> boughtItemList) {
+        String result = "";
+
+        for (BoughtItem boughtItem : boughtItemList) {
+            if (category.equals(boughtItem.getCategory())) {
+                result += boughtItem.toString();
+            }
+        }
+        return result;
     }
 }
