@@ -33,9 +33,10 @@
         <property name="promotionDao" ref="promotionDao"/>
     </bean>
     <bean id="boughtItemService" class="com.thoughtworks.iamcoach.pos.service.BoughtItemService">
-        <property name="barcode" ref="barcode"/>
-        <property name="itemService" ref="itemService"/>
+        <constructor-arg ref="barcode"/>
+        <constructor-arg ref="itemService"/>
     </bean>
+    
     <!-- other bean-->
     <bean id="barcode" class="com.thoughtworks.iamcoach.pos.Barcode"/>
 </beans>
