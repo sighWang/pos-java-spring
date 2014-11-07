@@ -5,9 +5,7 @@ import com.thoughtworks.iamcoach.pos.domain.BoughtItem;
 import com.thoughtworks.iamcoach.pos.domain.Item;
 import com.thoughtworks.iamcoach.pos.domain.Promotion;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class BoughtItemService {
 
@@ -37,6 +35,16 @@ public class BoughtItemService {
             boughtItemList.add(boughtItem);
         }
         return boughtItemList;
+    }
+
+    public Set<String> getCategorySetOfBoughtItems(List<BoughtItem> boughtItemList) {
+        Set<String> categorySet = new HashSet<String>();
+
+        for(BoughtItem boughtItem : boughtItemList) {
+            String category = boughtItem.getCategory();
+            categorySet.add(category);
+        }
+        return categorySet;
     }
 
     private BoughtItem determineBoughtItem(Item item, double number) {

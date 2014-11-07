@@ -57,7 +57,7 @@ public class BoughtItemServiceTest {
         boughtItemList.add(boughtItem1);
         boughtItemList.add(boughtItem2);
 
-        Set<String> categorySet = getCategorySetOfBoughtItems(boughtItemList);
+        Set<String> categorySet = boughtItemService.getCategorySetOfBoughtItems(boughtItemList);
         assertThat(categorySet).hasSize(1);
     }
 
