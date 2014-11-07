@@ -1,15 +1,11 @@
 package com.thoughtworks.iamcoach.pos.service;
 
 import com.thoughtworks.iamcoach.pos.Barcode;
-import com.thoughtworks.iamcoach.pos.dao.ItemDao;
-import com.thoughtworks.iamcoach.pos.dao.PromotionDao;
 import com.thoughtworks.iamcoach.pos.domain.BoughtItem;
 import com.thoughtworks.iamcoach.pos.domain.Item;
 import com.thoughtworks.iamcoach.pos.domain.Promotion;
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,13 +21,16 @@ public class BoughtItemServiceTest {
     @Before
     public void init() {
         boughtItemService = new BoughtItemService();
+
         ItemService itemService = mock(ItemService.class);
         Item item1 = new Item(1, "ITEM000001", "apple", "kg", 10.00, "fruit");
         Item item2 = new Item(6, "ITEM000006", "apple", "kg", 10.00, "fruit");
+
         List<Promotion> promotions = new ArrayList<Promotion>();
         promotions.add(new Promotion());
         item1.setPromotionList(promotions);
         item2.setPromotionList(promotions);
+
         when(itemService.findItemByBarcode("ITEM000001")).thenReturn(item1);
         when(itemService.findItemByBarcode("ITEM000006")).thenReturn(item2);
 
