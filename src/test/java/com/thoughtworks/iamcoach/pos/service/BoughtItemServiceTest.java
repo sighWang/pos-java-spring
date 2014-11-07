@@ -1,5 +1,8 @@
 package com.thoughtworks.iamcoach.pos.service;
 
+import com.thoughtworks.iamcoach.pos.Barcode;
+import com.thoughtworks.iamcoach.pos.dao.ItemDao;
+import com.thoughtworks.iamcoach.pos.dao.PromotionDao;
 import com.thoughtworks.iamcoach.pos.domain.BoughtItem;
 import com.thoughtworks.iamcoach.pos.domain.Item;
 import com.thoughtworks.iamcoach.pos.domain.Promotion;
@@ -13,14 +16,28 @@ import java.util.List;
 import java.util.Set;
 
 import static org.fest.assertions.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class BoughtItemServiceTest {
     private BoughtItemService boughtItemService;
 
     @Before
     public void init() {
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContextTest.xml");
-        boughtItemService = (BoughtItemService) context.getBean("boughtItemService");
+        boughtItemService = new BoughtItemService();
+        ItemService itemService = mock(ItemService.class);
+        Item item1 = new Item(1, "ITEM000001", "apple", "kg", 10.00, "fruit");
+        Item item2 = new Item(6, "ITEM000006", "apple", "kg", 10.00, "fruit");
+        List<Promotion> promotions = new ArrayList<Promotion>();
+        promotions.add(new Promotion());
+        item1.setPromotionList(promotions);
+        item2.setPromotionList(promotions);
+        when(itemService.findItemByBarcode("ITEM000001")).thenReturn(item1);
+        when(itemService.findItemByBarcode("ITEM000006")).thenReturn(item2);
+
+        Barcode barcode = new Barcode();
+        boughtItemService.setItemService(itemService);
+        boughtItemService.setBarcode(barcode);
     }
 
     @Test
@@ -40,7 +57,7 @@ public class BoughtItemServiceTest {
 
         assertThat(boughtItem1.getNumber()).isEqualTo(4.00);
         assertThat(boughtItem1.getBarcode()).isEqualTo("ITEM000001");
-
+        assertThat(boughtItem1.getPrice()).isEqualTo(10.00);
         assertThat(boughtItem2.getNumber()).isEqualTo(4.00);
         assertThat(boughtItem2.getBarcode()).isEqualTo("ITEM000006");
     }
