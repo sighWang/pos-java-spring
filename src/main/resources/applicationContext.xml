@@ -24,7 +24,7 @@
         <constructor-arg ref="jdbcTemplate"/>
     </bean>
     <bean id="promotionDao" class="com.thoughtworks.iamcoach.pos.dao.PromotionDao">
-        <property name="jdbcTempalte" ref="jdbcTemplate"/>
+        <constructor-arg ref="jdbcTemplate"/>
     </bean>
 
     <!-- service bean-->
