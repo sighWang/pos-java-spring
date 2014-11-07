@@ -14,10 +14,6 @@ public class ItemDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
     public Item getItemById(final int id) {
 
         String sql = "SELECT * FROM item WHERE id=?";

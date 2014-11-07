@@ -17,9 +17,6 @@ public class PromotionDao {
     public PromotionDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-    public void setJdbcTempalte(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
 
     public List<Promotion> getItemPromotionList(final int id) {
 
